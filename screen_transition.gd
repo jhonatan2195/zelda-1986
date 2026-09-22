@@ -3,7 +3,7 @@ extends Node2D
 
 #Crear referenciass
 @onready var camera_2d: Camera2D = $".."
-@onready var player: Player = $"../../Player"
+
 
 var moving_camera: bool = false
 

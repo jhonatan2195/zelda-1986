@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bmk2xfv6waa2d" path="res://screen_transition.gd" id="4_jromk"]
 [ext_resource type="PackedScene" uid="uid://ppjnegee3p4f" path="res://octorok.tscn" id="5_h7krh"]
 [ext_resource type="PackedScene" uid="uid://cjm2elvxp8flr" path="res://octorok_blue.tscn" id="7_gi3cl"]
+[ext_resource type="PackedScene" uid="uid://cnahstphuapx1" path="res://lynel.tscn" id="8_dp84k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0lnjc"]
 texture = ExtResource("2_o2lv5")
@@ -148,9 +149,14 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1268438197 instance=ExtResource("1_jromk")]
 z_index = 100
-position = Vector2(1903, 1316)
+position = Vector2(1896, 1319)
 collision_layer = 512
 collision_mask = 524289
+
+[node name="SwordHitBox" type="Area2D" parent="Player" unique_id=1600141459]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/SwordHitBox" unique_id=656668053]
 
 [node name="MapHelp" type="Sprite2D" parent="." unique_id=2147463436]
 modulate = Color(1, 1, 1, 0.56078434)
@@ -199,7 +205,7 @@ collision_mask = 514
 shape = SubResource("RectangleShape2D_dp84k")
 
 [node name="Octorok" parent="." unique_id=1881121870 instance=ExtResource("5_h7krh")]
-position = Vector2(1930, 1346)
+position = Vector2(1922, 1347)
 
 [node name="Octorok2" parent="." unique_id=811531420 instance=ExtResource("5_h7krh")]
 position = Vector2(1859, 1317)
@@ -216,6 +222,9 @@ position = Vector2(1882, 1288)
 [node name="OctorokBlue2" parent="." unique_id=1150042517 instance=ExtResource("7_gi3cl")]
 position = Vector2(1882, 1288)
 
+[node name="Lynel" parent="." unique_id=22924256 instance=ExtResource("8_dp84k")]
+
+[connection signal="body_entered" from="Player/SwordHitBox" to="Player" method="_on_sword_hit_box_body_entered"]
 [connection signal="body_entered" from="Camera2D/ScreenTransition/Area2D_Up" to="Camera2D/ScreenTransition" method="_on_area_2d_up_body_entered"]
 [connection signal="body_entered" from="Camera2D/ScreenTransition/Area2D_Down" to="Camera2D/ScreenTransition" method="_on_area_2d_down_body_entered"]
 [connection signal="body_entered" from="Camera2D/ScreenTransition/Area2D_Left" to="Camera2D/ScreenTransition" method="_on_area_2d_left_body_entered"]

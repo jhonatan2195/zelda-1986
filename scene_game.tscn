@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://cfn2q5n3e04wy"]
 
 [ext_resource type="PackedScene" uid="uid://bfcygjgj6onhp" path="res://Player.tscn" id="1_jromk"]
-[ext_resource type="Texture2D" uid="uid://d3r3un1pemwvp" path="res://Overworld_16x16_sin_margenes.png" id="2_o2lv5"]
+[ext_resource type="Texture2D" uid="uid://dmaushl5qt6pw" path="res://Overworld_16x16_sin_margenes.png" id="2_o2lv5"]
 [ext_resource type="Shader" uid="uid://ovd05j4n67sv" path="res://ForetsGreen.gdshader" id="2_s53oh"]
-[ext_resource type="Texture2D" uid="uid://bpm1ae7jrndkx" path="res://ZeldaOverworldMapQ1.png" id="3_0lnjc"]
+[ext_resource type="Texture2D" uid="uid://b40rkgwjx227d" path="res://ZeldaOverworldMapQ1.png" id="3_0lnjc"]
 [ext_resource type="Script" uid="uid://bmk2xfv6waa2d" path="res://screen_transition.gd" id="4_jromk"]
 [ext_resource type="PackedScene" uid="uid://ppjnegee3p4f" path="res://octorok.tscn" id="5_h7krh"]
 [ext_resource type="PackedScene" uid="uid://cjm2elvxp8flr" path="res://octorok_blue.tscn" id="7_gi3cl"]

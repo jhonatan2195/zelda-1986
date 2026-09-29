@@ -147,7 +147,7 @@ radius = 17.0
 height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t2riw"]
-radius = 90.0
+radius = 180.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbh1w"]
 size = Vector2(26.999998, 27)
@@ -214,11 +214,7 @@ shape = SubResource("RectangleShape2D_jbh1w")
 
 [node name="StateTimer" type="Timer" parent="." unique_id=419396710]
 
-[node name="bomerang_tscn" parent="." unique_id=918758837 instance=ExtResource("10_ygphm")]
-position = Vector2(-613, -177)
 
-[node name="bomerang_tscn2" parent="." unique_id=927668471 instance=ExtResource("10_ygphm")]
-position = Vector2(-819, -166)
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

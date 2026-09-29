@@ -1,7 +1,7 @@
 extends Node
 ## lynel_spawner.gd — Instancia Lynel en runtime si no está en la escena.
 
-@export var lynel_scene: PackedScene = preload("res://Lynel.tscn")
+@export var lynel_scene: PackedScene = preload("res://lynel.tscn")
 @export var spawn_position: Vector2 = Vector2(1200, 400)
 
 func _ready() -> void:

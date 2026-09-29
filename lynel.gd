@@ -155,16 +155,21 @@ func _start_ranged() -> void:
 
 
 func _spawn_projectile() -> void:
-	print("LYNEL DISPARA | PROJECTILE_SCENE=", PROJECTILE_SCENE)
 	if PROJECTILE_SCENE == null:
-		print("  ERROR: PROJECTILE_SCENE es null")
+		push_warning("Lynel: PROJECTILE_SCENE no está asignado.")
 		return
+
 	var projectile = PROJECTILE_SCENE.instantiate()
-	projectile.global_position = global_position
-	projectile.direction = direction
-	projectile.damage = 2 if IS_RED_VARIANT else 1
 	get_parent().add_child(projectile)
-	print("  BOMERANG INSTANCIADO en ", projectile.global_position)
+
+	var throw_direction := direction.normalized()
+	var target_pos := global_position + throw_direction * 150.0
+	if is_instance_valid(player):
+		target_pos = player.global_position
+		throw_direction = (target_pos - global_position).normalized()
+
+	var dmg: int = 2 if IS_RED_VARIANT else 1
+	projectile.launch(global_position + throw_direction * 12.0, target_pos, self, dmg)
 
 
 # ---------------------------------------------------------------
@@ -251,10 +256,6 @@ func take_damage(amount: int) -> void:
 
 	if not is_enraged and float(health) / float(MAX_HEALTH) <= ENRAGE_HEALTH_RATIO:
 		_enter_enraged_phase()
-	health -= amount
-	if health <= 0:
-		_die()
-		return
 
 func _enter_enraged_phase() -> void:
 	is_enraged = true

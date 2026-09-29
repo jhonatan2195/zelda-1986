@@ -4,6 +4,7 @@
 
 [node name="Lynel" unique_id=22924256 instance=ExtResource("1_ccmju")]
 position = Vector2(1800, 500)
+IS_RED_VARIANT = true
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=786835983]
 animation = &"death_up"

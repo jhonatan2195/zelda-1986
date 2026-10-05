@@ -5,11 +5,12 @@
 [ext_resource type="Shader" uid="uid://ovd05j4n67sv" path="res://ForetsGreen.gdshader" id="2_s53oh"]
 [ext_resource type="Texture2D" uid="uid://b40rkgwjx227d" path="res://ZeldaOverworldMapQ1.png" id="3_0lnjc"]
 [ext_resource type="Script" uid="uid://bmk2xfv6waa2d" path="res://screen_transition.gd" id="4_jromk"]
-[ext_resource type="PackedScene" uid="uid://ppjnegee3p4f" path="res://octorok.tscn" id="5_h7krh"]
-[ext_resource type="PackedScene" uid="uid://cjm2elvxp8flr" path="res://octorok_blue.tscn" id="7_gi3cl"]
 [ext_resource type="PackedScene" uid="uid://cnahstphuapx1" path="res://lynel.tscn" id="8_dp84k"]
-[ext_resource type="Script" uid="uid://b8ohso77vlkl0" path="res://lynel_spawner.gd" id="9_lb88t"]
 [ext_resource type="PackedScene" uid="uid://cgp2dys6ie2l5" path="res://Lynel_Red.tscn.tscn" id="10_nppxu"]
+[ext_resource type="PackedScene" path="res://molblin.tscn" id="11_molblin"]
+[ext_resource type="PackedScene" path="res://Molblin_Red.tscn" id="12_molblin_red"]
+[ext_resource type="PackedScene" path="res://octorok.tscn" id="13_octorok"]
+[ext_resource type="PackedScene" path="res://Octorok_Red.tscn" id="14_octorok_red"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0lnjc"]
 texture = ExtResource("2_o2lv5")
@@ -210,33 +211,52 @@ collision_mask = 514
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/ScreenTransition/Area2D_Right" unique_id=1434236223]
 shape = SubResource("RectangleShape2D_dp84k")
 
-[node name="Octorok" parent="." unique_id=1881121870 instance=ExtResource("5_h7krh")]
-position = Vector2(1928, 1349)
-
-[node name="Octorok2" parent="." unique_id=811531420 instance=ExtResource("5_h7krh")]
-position = Vector2(1854, 1313)
-
-[node name="Octorok3" parent="." unique_id=1282490059 instance=ExtResource("5_h7krh")]
-position = Vector2(1990, 1334)
-
-[node name="Octorok4" parent="." unique_id=675005478 instance=ExtResource("5_h7krh")]
-position = Vector2(1877, 1359)
-
-[node name="OctorokBlue" parent="." unique_id=1297794043 instance=ExtResource("7_gi3cl")]
-position = Vector2(1882, 1288)
-
-[node name="OctorokBlue2" parent="." unique_id=1150042517 instance=ExtResource("7_gi3cl")]
-position = Vector2(1882, 1288)
-
 [node name="Lynel" parent="." unique_id=22924256 instance=ExtResource("8_dp84k")]
 z_index = 1
 position = Vector2(1813, 1321)
 
-[node name="LynelSpawner" type="Node" parent="." unique_id=2055952191]
-script = ExtResource("9_lb88t")
-
 [node name="Lynel2" parent="." unique_id=1140592207 instance=ExtResource("10_nppxu")]
 position = Vector2(2004, 1324)
+
+[node name="Molblin" parent="." instance=ExtResource("11_molblin")]
+position = Vector2(1735, 1195)
+z_index = 2
+
+[node name="MolblinRed" parent="." instance=ExtResource("12_molblin_red")]
+position = Vector2(1770, 1168)
+z_index = 2
+
+[node name="Molblin2" parent="." instance=ExtResource("11_molblin")]
+position = Vector2(1610, 1210)
+z_index = 2
+
+[node name="Molblin3" parent="." instance=ExtResource("11_molblin")]
+position = Vector2(1660, 1120)
+z_index = 2
+
+[node name="Molblin4" parent="." instance=ExtResource("11_molblin")]
+position = Vector2(1740, 1080)
+z_index = 2
+
+[node name="MolblinRed2" parent="." instance=ExtResource("12_molblin_red")]
+position = Vector2(1920, 1100)
+z_index = 2
+
+[node name="Molblin5" parent="." instance=ExtResource("11_molblin")]
+position = Vector2(1980, 1210)
+z_index = 2
+
+[node name="Molblin6" parent="." instance=ExtResource("11_molblin")]
+position = Vector2(2040, 1280)
+z_index = 2
+
+[node name="Octorok" parent="." instance=ExtResource("13_octorok")]
+position = Vector2(1855, 1220)
+z_index = 2
+
+[node name="OctorokRed" parent="." instance=ExtResource("14_octorok_red")]
+position = Vector2(1885, 1265)
+z_index = 2
 
 [connection signal="body_entered" from="Player/SwordHitBox" to="Player" method="_on_sword_hit_box_body_entered"]
 [connection signal="body_entered" from="Camera2D/ScreenTransition/Area2D_Up" to="Camera2D/ScreenTransition" method="_on_area_2d_up_body_entered"]

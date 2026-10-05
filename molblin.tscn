@@ -1,0 +1,136 @@
+[gd_scene load_steps=30 format=3]
+
+[ext_resource type="Script" path="res://molblin.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://molblin_spear.tscn" id="10_spear"]
+[ext_resource type="Texture2D" path="res://AssetsEX/02_Overworld_Enemies/Molblin_Blue_Back.png" id="2_blue_back"]
+[ext_resource type="Texture2D" path="res://AssetsEX/02_Overworld_Enemies/Molblin_Blue_Front.png" id="3_blue_front"]
+[ext_resource type="Texture2D" path="res://AssetsEX/02_Overworld_Enemies/Molblin_Blue_Left.png" id="4_blue_left"]
+[ext_resource type="Texture2D" path="res://AssetsEX/02_Overworld_Enemies/Molblin_Blue_Right.png" id="5_blue_right"]
+[ext_resource type="Texture2D" path="res://AssetsEX/02_Overworld_Enemies/Molblin_Red_Back.png" id="6_red_back"]
+[ext_resource type="Texture2D" path="res://AssetsEX/02_Overworld_Enemies/Molblin_Red_Front.png" id="7_red_front"]
+[ext_resource type="Texture2D" path="res://AssetsEX/02_Overworld_Enemies/Molblin_Red_Left.png" id="8_red_left"]
+[ext_resource type="Texture2D" path="res://AssetsEX/02_Overworld_Enemies/Molblin_Red_Right.png" id="9_red_right"]
+
+[sub_resource type="AtlasTexture" id="Atlas_2_blue_back_0"]
+atlas = ExtResource("2_blue_back")
+region = Rect2(0, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_2_blue_back_1"]
+atlas = ExtResource("2_blue_back")
+region = Rect2(14, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_3_blue_front_0"]
+atlas = ExtResource("3_blue_front")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_3_blue_front_1"]
+atlas = ExtResource("3_blue_front")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_4_blue_left_0"]
+atlas = ExtResource("4_blue_left")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_4_blue_left_1"]
+atlas = ExtResource("4_blue_left")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_5_blue_right_0"]
+atlas = ExtResource("5_blue_right")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_5_blue_right_1"]
+atlas = ExtResource("5_blue_right")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_6_red_back_0"]
+atlas = ExtResource("6_red_back")
+region = Rect2(0, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_6_red_back_1"]
+atlas = ExtResource("6_red_back")
+region = Rect2(14, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_7_red_front_0"]
+atlas = ExtResource("7_red_front")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_7_red_front_1"]
+atlas = ExtResource("7_red_front")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_8_red_left_0"]
+atlas = ExtResource("8_red_left")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_8_red_left_1"]
+atlas = ExtResource("8_red_left")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_9_red_right_0"]
+atlas = ExtResource("9_red_right")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="Atlas_9_red_right_1"]
+atlas = ExtResource("9_red_right")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_molblin"]
+animations = [
+{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_2_blue_back_0")}], "loop": true, "name": &"walk_blue_up", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_3_blue_front_0")}], "loop": true, "name": &"walk_blue_down", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_4_blue_left_0")}], "loop": true, "name": &"walk_blue_left", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_5_blue_right_0")}], "loop": true, "name": &"walk_blue_right", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_6_red_back_0")}], "loop": true, "name": &"walk_red_up", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_7_red_front_0")}], "loop": true, "name": &"walk_red_down", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_8_red_left_0")}], "loop": true, "name": &"walk_red_left", "speed": 1.0},
+{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_9_red_right_0")}], "loop": true, "name": &"walk_red_right", "speed": 1.0}]
+
+
+[sub_resource type="CapsuleShape2D" id="BodyShape"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="DetectShape"]
+radius = 150.0
+
+[node name="Molblin" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 524289
+script = ExtResource("1_script")
+PROJECTILE_SCENE = ExtResource("10_spear")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_molblin")
+animation = &"walk_blue_down"
+centered = true
+z_index = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("BodyShape")
+
+[node name="RayCast2D_UP" type="RayCast2D" parent="."]
+target_position = Vector2(0, -12)
+collision_mask = 524289
+
+[node name="RayCast2D_DOWN" type="RayCast2D" parent="."]
+target_position = Vector2(0, 12)
+collision_mask = 524289
+
+[node name="RayCast2D_LEFT" type="RayCast2D" parent="."]
+target_position = Vector2(-12, 0)
+collision_mask = 524289
+
+[node name="RayCast2D_RIGHT" type="RayCast2D" parent="."]
+target_position = Vector2(12, 0)
+collision_mask = 524289
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("DetectShape")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

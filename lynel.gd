@@ -18,7 +18,7 @@ extends CharacterBody2D
 
 # ===================== ATAQUE A DISTANCIA =====================
 @export var RANGED_ATTACK_RANGE: float = 250.0
-@export var RANGED_COOLDOWN: float     = 3.0
+@export var RANGED_COOLDOWN: float     = 4.0
 @export var IS_RED_VARIANT: bool       = false
 @export var PROJECTILE_SCENE: PackedScene
 
@@ -150,7 +150,7 @@ func _start_ranged() -> void:
 	print("LYNEL INICIA RANGED | dist=", (player.global_position - global_position).length())
 	state = State.RANGED
 	ranged_timer = RANGED_COOLDOWN
-	state_timer.wait_time = 0.5
+	state_timer.wait_time = 0.85
 	state_timer.start()
 
 
@@ -163,13 +163,13 @@ func _spawn_projectile() -> void:
 	get_parent().add_child(projectile)
 
 	var throw_direction := direction.normalized()
-	var target_pos := global_position + throw_direction * 150.0
 	if is_instance_valid(player):
-		target_pos = player.global_position
-		throw_direction = (target_pos - global_position).normalized()
+		throw_direction = (player.global_position - global_position).normalized()
 
-	var dmg: int = 2 if IS_RED_VARIANT else 1
-	projectile.launch(global_position + throw_direction * 12.0, target_pos, self, dmg)
+	projectile.global_position = global_position + throw_direction * 12.0
+	projectile.direction = throw_direction
+	projectile.damage = 2 if IS_RED_VARIANT else 1
+	projectile.return_target = self
 
 
 # ---------------------------------------------------------------
@@ -210,7 +210,11 @@ func _direction_to_suffix(dir: Vector2) -> String:
 func _update_animation() -> void:
 	if state in [State.WINDUP, State.CHARGE, State.RANGED, State.HURT, State.DEAD]:
 		return
-	animated_sprite_2d.play("walk_%s" % _direction_to_suffix(direction))
+	var animation_name := "walk_%s" % _direction_to_suffix(direction)
+	if animated_sprite_2d.animation != StringName(animation_name):
+		animated_sprite_2d.play(animation_name)
+	elif not animated_sprite_2d.is_playing():
+		animated_sprite_2d.play(animation_name)
 
 
 # ---------------------------------------------------------------

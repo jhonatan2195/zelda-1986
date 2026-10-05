@@ -45,10 +45,10 @@ func _physics_process(delta: float) -> void:
 	if input_vector != Vector2.ZERO:
 		direction = input_vector.normalized()
 		velocity = direction * SPEED
-		animated_sprite_2d.play("walk_%s" % _direction_to_suffix(direction))
+		_play_animation("walk_%s" % _direction_to_suffix(direction))
 	else:
 		velocity = Vector2.ZERO
-		animated_sprite_2d.play("Idle")
+		_play_animation("Idle")
 
 	move_and_slide()
 	_handle_attack_input()
@@ -58,6 +58,11 @@ func _handle_attack_input() -> void:
 	if Input.is_action_just_pressed("ATACAR") and not is_attacking:
 		_start_attack()
 
+func _play_animation(animation_name: String) -> void:
+	if animated_sprite_2d.animation != StringName(animation_name):
+		animated_sprite_2d.play(animation_name)
+	elif not animated_sprite_2d.is_playing():
+		animated_sprite_2d.play(animation_name)
 
 func _direction_to_suffix(dir: Vector2) -> String:
 	if abs(dir.x) > abs(dir.y):
@@ -67,7 +72,7 @@ func _direction_to_suffix(dir: Vector2) -> String:
 
 func _start_attack() -> void:
 	is_attacking = true
-	animated_sprite_2d.play("sword_%s" % _direction_to_suffix(direction))
+	_play_animation("sword_%s" % _direction_to_suffix(direction))
 	if sword_hitbox:
 		sword_hitbox.position = direction * 8.0
 	if sword_hitbox_shape:

@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://molblin_spear.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://AssetsEX/01_Items/Molblin_Spear_Down.png" id="2_spear"]
+
+[sub_resource type="CapsuleShape2D" id="SpearShape"]
+radius = 2.5
+height = 18.0
+
+[node name="MolblinSpear" type="Area2D"]
+collision_layer = 0
+collision_mask = 512
+monitoring = true
+monitorable = true
+z_index = 150
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_spear")
+centered = true
+scale = Vector2(1.0, 1.0)
+z_index = 1
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SpearShape")
+position = Vector2(0, 2)

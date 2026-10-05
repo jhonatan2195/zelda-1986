@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://molblin.tscn" id="1_molblin"]
+
+[node name="MolblinRed" instance=ExtResource("1_molblin")]
+IS_RED_VARIANT = true
+MAX_HEALTH = 5
+SPEED_PATROL = 22.0
+SPEED_CHASE = 34.0
+DETECTION_RANGE = 175.0
+THROW_RANGE = 155.0
+THROW_COOLDOWN = 1.5
+PROJECTILE_SPEED = 38.0
+PROJECTILE_DAMAGE = 2

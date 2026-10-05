@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://octorok.tscn" id="1_octorok"]
+
+[node name="OctorokRed" instance=ExtResource("1_octorok")]
+IS_RED_VARIANT = true
+MAX_HEALTH = 3
+SPEED_PATROL = 18.0
+SPEED_CHASE = 25.0
+THROW_COOLDOWN = 1.5
+PROJECTILE_SPEED = 100.0
+PROJECTILE_DAMAGE = 2
